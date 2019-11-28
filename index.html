@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Forgerock Vue Todo KEssex</title>
+        <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
+        <link rel="stylesheet" href="styles.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+        <script src="./plugins/vue.js"></script>
+        <script src="./node_modules/jquery/dist/jquery.slim.min.js"></script>
+        <script src="script.js"></script>
+    </head>
+    <body>
+        <div class="container mt-5">
+            <div class="row">
+                <div id="vueEl" class="col-12">
+                    <div class="container">
+                        <div class="row mb-2">
+                            <div class="col-auto"><h2>Forgerock Todo List</h2></div>
+                            <div class="col-auto ml-auto"><button class="btn btn-danger" v-on:click="clearAll">Clear list</button></div>
+                        </div>
+                        <div class="row" v-for="item in listItems" :key="item.id">
+                            <list-item :item="item"></list-item>
+                        </div>
+                        <div v-if="notEditing()" class="row">
+                            <list-item></list-item>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
